@@ -4,9 +4,7 @@
     box-sizing: border-box;
 }
 
-html {
-    /* overflow:hidden; */
-}
+
 
 /* First Header */
 
@@ -28,7 +26,7 @@ html {
 
 #first-header .fst-header .local {
     float: right;
-    font-weight: 5 00;
+    font-weight: 500;
 }
 
 .fst-header .local a {
@@ -152,7 +150,7 @@ html {
 #main #header .mini-nav button {
     font-size: 18px;
     line-height: 50px;
-    background-color: transparent;
+    background-color: transparent;  
     border: none;
     color: #2F3132;
     cursor: pointer;
@@ -240,28 +238,67 @@ html {
     display: none;
 }
 
+.tablet-box-element {
+    display: none;
+}
+
 
 
 
 
 @media (min-width: 720px) and (max-width: 1024px) {
+    #main {
+        animation-duration: 0.3s;
+    }
+
+    @keyframes tablet-header-slideA-motion {
+        0% {
+            transform: translateX(0%);
+        }
+
+        50% {
+            filter: brightness(0.2);
+        }
+
+        100% {
+            transform: translateX(73%);
+            filter: brightness(0.3);
+        }
+    }
+
+    @keyframes tablet-header-slideB-motion {
+        0% {
+            transform: translateX(73%);
+            filter: brightness(0.3);
+        }
+
+        100% {
+            transform: translateX(0%);
+        }
+    }
+
+
+
+
 
     /* Header */
     #main #header {
         background: url('../image/Banner/brio-100-hpb-tablet.webp') center center /cover no-repeat;
-        height: 80vh;
-
+        height: 75vh;
     }
+
 
     #first-header,
     .desktop-header-wrap {
         display: none;
+
     }
 
     #header .tablet-header-wrap {
-        width: 90%;
+        width: 94%;
         height: 50px;
         margin: 0 auto;
+
         /* background-color: red; */
     }
 
@@ -293,42 +330,28 @@ html {
     }
 
     #main #header .tablet-header-wrap .tablet-search-box {
-        position: absolute;
+        position: fixed;
         top: 0px;
         z-index: 10;
         left: 0;
         width: 100%;
         border-top: 1px solid #C3C6C8;
-        height: 45px;
+        height: 55px;
         background-color: #fff;
         display: none;
         animation-duration: 0.3s;
     }
 
-    /*     @keyframes Search-box-motion-in {
-        from{
-            opacity: 0;
-        }to{
-            opacity: 1;
-        }
-        }
-        @keyframes Search-box-motion-out {
-        from{
-            opacity: 0.7;
-        
-        }to{
-            opacity: 0;
-        }
-        } */
+
     #main #header .tablet-search-box .search-box-wrap {
-        width: 85%;
+        width: 93%;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
     }
 
     #header .tablet-search-box .search-box-wrap #tablet-search-input {
-        height: 40px;
+        height: 55px;
         border: none;
         font-family: Lexend Deca;
         font-weight: 600;
@@ -351,7 +374,7 @@ html {
 
     #header .tablet-search-box .search-box-wrap #tablet-close-search {
         font-size: 1.3em;
-        line-height: 45px;
+        line-height: 50px;
         color: #C3C6C8;
         cursor: pointer;
         transition: 0.1s;
@@ -362,17 +385,39 @@ html {
     }
 
     /* tablet box element */
-    .tablet-header-wrap .tablet-box-element {
-        position: absolute;
+    .tablet-box-element {
+        position: fixed;
         top: 0;
         left: 0;
         background-color: #fff;
-        width: 60%;
-        height: 200vh;
+        display: none;
+        width: 73%;
+        height: 100vh;
         background-color: #f4f4f4;
+        animation-duration: 0.3s;
     }
 
-    .tablet-header-wrap .tablet-box-element .tablet-login {
+    @keyframes tablet-box-open-motion {
+        0% {
+            transform: translateX(-110%);
+        }
+
+        100% {
+            transform: translateX(0%);
+        }
+    }
+
+    @keyframes tablet-box-close-motion {
+        from {
+            transform: translateX(0%);
+        }
+
+        to {
+            transform: translateX(-110%);
+        }
+    }
+
+    .tablet-box-element .tablet-login {
         position: relative;
         width: 100%;
         background-color: #fff;
@@ -388,8 +433,9 @@ html {
         color: #000000;
     }
 
-    .tablet-header-wrap .tablet-box-element .tablet-box-close {
+    .tablet-box-element .tablet-box-close {
         position: absolute;
+
         top: 0;
         right: -49px;
         width: 49px;
@@ -399,7 +445,7 @@ html {
         color: #4d4d4d;
     }
 
-    .tablet-header-wrap .tablet-box-element li {
+    .tablet-box-element li {
         display: flex;
         justify-content: space-between;
         width: 100%;
@@ -410,44 +456,63 @@ html {
         cursor: pointer;
         text-transform: uppercase;
         border-bottom: 1px solid #cdcdcd;
-    }
-
-    .tablet-header-wrap .tablet-box-element li i {
         line-height: 70px;
-        padding-top: 12px;
-
     }
 
-    .tablet-header-wrap .tablet-box-element li a {
+    .tablet-box-element li i {
+        line-height: 70px;
+    }
+
+    .tablet-box-element li a {
         text-decoration: none;
         font-family: Lexend Deca;
         font-weight: 600;
         color: black;
-
-
-
-
-
-
-        /* tablet box element */
-
-
-        /* Header */
     }
 
-    @media (max-width: 720px) {
-        #main #header {
-            background: url('../image/Banner/brio-100-hpb-mobile.webp') center center /cover no-repeat;
-        }
+    .tablet-local {
+        position: absolute;
+        bottom: 0;
+        font-weight: 500;
+        width: 100%;
+        height: 80px;
+        margin: 0 auto;
+        text-align: center;
+        color: rgb(106, 113, 114);
 
-        #first-header,
-        .desktop-header-wrap {
-            display: none;
-        }
     }
 
+    .tablet-local a {
+        line-height: 80px;
+        font-weight: 400;
+        font-family: Lexend Deca;
+        color: rgb(106, 113, 114);
+        font-size: 14px;
+    }
+
+    .tablet-local a:hover {
+        text-decoration: underline;
+    }
+
+    /* // transform: translateX(73%);
+// filter: brightness(0.3); */
 
 
+    /* tablet box element */
 
 
     /* Header */
+}
+
+@media (max-width: 720px) {
+    #main #header {
+        background: url('../image/Banner/brio-100-hpb-mobile.webp') center center /cover no-repeat;
+    }
+
+    #first-header,
+    .desktop-header-wrap, .tablet-header-wrap {
+        display: none;
+    }
+    
+
+}

@@ -63,3 +63,56 @@ tabletCloseSearch.addEventListener('click', function () {
 });
 
 /// Open and Close /* tablet  */search box
+// transform: translateX(73%);
+// filter: brightness(0.3);
+
+
+
+//open and close /* tablet */ navigation box
+var tabletElementOpen = document.querySelector('.tablet-nav-box #tablet-nav-button');
+var tabletElementClose = document.querySelector('.tablet-box-element .tablet-box-close');
+var tabletElementBox = document.querySelector('.tablet-box-element');
+var tabletHeader = document.querySelector('#main');
+
+function handleScroll(event) {
+   event.preventDefault();
+}
+function openElementBox() {
+   tabletHeader.style.animationName = 'tablet-header-slideA-motion';
+   tabletHeader.style.animationFillMode = 'forwards';
+   tabletElementBox.style.display = 'block';
+   tabletElementBox.style.animationName = 'tablet-box-open-motion';
+   tabletElementBox.style.animationFillMode = 'forwards';
+   tabletElementBox.addEventListener('mousewheel', handleScroll);
+   tabletHeader.addEventListener('mousewheel', handleScroll);
+   document.querySelector('html').style.overflow = 'hidden';
+}
+function closeElementBox() {
+   tabletHeader.style.animationName = 'tablet-header-slideB-motion';
+   tabletHeader.style.animationFillMode = 'forwards';
+   tabletElementBox.style.animationName = 'tablet-box-close-motion';
+   tabletElementBox.style.animationFillMode = 'forwards';
+   tabletHeader.removeEventListener('mousewheel', handleScroll);
+   document.querySelector('html').style.overflow = '';
+   setTimeout(function () {
+      tabletElementBox.style.display = 'none';
+   }, 400);
+}
+tabletElementOpen.addEventListener('click', openElementBox)
+tabletElementClose.addEventListener('click',closeElementBox);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//open and close /* tablet */ navigation box
