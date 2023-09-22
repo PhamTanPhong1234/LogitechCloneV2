@@ -150,7 +150,7 @@
 #main #header .mini-nav button {
     font-size: 18px;
     line-height: 50px;
-    background-color: transparent;  
+    background-color: transparent;
     border: none;
     color: #2F3132;
     cursor: pointer;
@@ -234,7 +234,8 @@
     color: black;
 }
 
-#header .tablet-header-wrap {
+#header .tablet-header-wrap,
+#header .mobile-header-wrap {
     display: none;
 }
 
@@ -289,7 +290,8 @@
 
 
     #first-header,
-    .desktop-header-wrap {
+    .desktop-header-wrap,
+    .mobile-header-wrap {
         display: none;
 
     }
@@ -435,11 +437,10 @@
 
     .tablet-box-element .tablet-box-close {
         position: absolute;
-
         top: 0;
-        right: -49px;
-        width: 49px;
-        height: 49px;
+        right: -50px;
+        width: 50px;
+        height: 50px;
         background-color: #ffffff;
         padding-left: 1em;
         color: #4d4d4d;
@@ -505,14 +506,248 @@
 }
 
 @media (max-width: 720px) {
-    #main #header {
-        background: url('../image/Banner/brio-100-hpb-mobile.webp') center center /cover no-repeat;
+    #main {
+        animation-duration: 0.3s;
     }
 
+    @keyframes mobile-header-slideA-motion {
+        0% {
+            transform: translateX(0%);
+        }
+
+        50% {
+            filter: brightness(0.2);
+        }
+
+        100% {
+            transform: translateX(73%);
+            filter: brightness(0.3);
+        }
+    }
+
+    @keyframes mobile-header-slideB-motion {
+        0% {
+            transform: translateX(73%);
+            filter: brightness(0.3);
+        }
+
+        100% {
+            transform: translateX(0%);
+        }
+    }
+
+
+    #main #header {
+        background: url('../image/Banner/brio-100-hpb-mobile.webp') center center /cover no-repeat;
+        height: 75vh;
+    }
+
+
     #first-header,
-    .desktop-header-wrap, .tablet-header-wrap {
+    .desktop-header-wrap,
+    .tablet-header-wrap {
         display: none;
     }
-    
+
+    #header .mobile-header-wrap {
+        width: 94%;
+        height: 50px;
+        margin: 0 auto;
+
+        /* background-color: red; */
+    }
+
+    #header .mobile-header-wrap {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #header .mobile-header-wrap .mobile-nav-box i {
+        font-size: 25px;
+        line-height: 46px;
+        cursor: pointer;
+    }
+
+    #header .mobile-header-wrap .mobile-search-button {
+        font-size: 20px;
+        cursor: pointer;
+        line-height: 46px;
+        background-color: transparent;
+        border: none;
+    }
+
+    #header .mobile-header-wrap .mobile-search-button i {
+        line-height: 46px;
+    }
+
+    #main #header .mobile-header-wrap .mobile-search {
+        margin-right: 25px;
+    }
+
+    #main #header .mobile-header-wrap .mobile-search-box {
+        position: fixed;
+        top: 0px;
+        z-index: 10;
+        left: 0;
+        width: 100%;
+        border-top: 1px solid #C3C6C8;
+        height: 55px;
+        background-color: #fff;
+        display: none;
+        animation-duration: 0.3s;
+    }
+
+
+    #main #header .mobile-search-box .search-box-wrap {
+        width: 93%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #header .mobile-search-box .search-box-wrap #mobile-search-input {
+        height: 50px;
+        border: none;
+        font-family: Lexend Deca;
+        font-weight: 600;
+        font-size: 1rem;
+        color: #000000;
+    }
+
+    #mobile-search-input:focus {
+        outline: none;
+
+    }
+
+    #mobile-search-input::placeholder {
+        text-transform: uppercase;
+        font-family: Lexend Deca;
+        font-weight: 600;
+        font-size: 15px;
+        color: #C3C6C8;
+    }
+
+    #header .mobile-search-box .search-box-wrap #mobile-close-search {
+        font-size: 1.3em;
+        line-height: 50px;
+        color: #C3C6C8;
+        cursor: pointer;
+        transition: 0.1s;
+    }
+
+    #header .mobile-search-box .search-box-wrap #mobile-close-search:hover {
+        color: black;
+    }
+
+    /* mobile box element */
+    .mobile-box-element {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #fff;
+        display: none;
+        width:88vw;
+        height: 100vh;
+        background-color: #f4f4f4;
+        animation-duration: 0.3s;
+    }
+
+    @keyframes mobile-box-open-motion {
+        0% {
+            transform: translateX(-120%);
+        }
+
+        100% {
+            transform: translateX(0%);
+        }
+    }
+
+    @keyframes mobile-box-close-motion {
+        from {
+            transform: translateX(0%);
+        }
+
+        to {
+            transform: translateX(-120%);
+        }
+    }
+
+    .mobile-box-element .mobile-login {
+        position: relative;
+        width: 100%;
+        background-color: #fff;
+        height: 50px;
+        line-height: 50px;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-family: Lexend Deca;
+        font-weight: 200;
+        font-size: 14px;
+        border-bottom: 1px solid #cdcdcd;
+        border-right: 1px solid #cdcdcd;
+        color: #000000;
+    }
+
+    .mobile-box-element .mobile-box-close {
+        position: absolute;
+
+        top: 0;
+        right: -49px;
+        width: 49px;
+        height: 49px;
+        background-color: #ffffff;
+        padding-left: 1em;
+        color: #4d4d4d;
+    }
+
+    .mobile-box-element li {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: 70px;
+        line-height: 70px;
+        padding: 0 25px;
+        font-size: 14px;
+        cursor: pointer;
+        text-transform: uppercase;
+        border-bottom: 1px solid #cdcdcd;
+        line-height: 70px;
+    }
+
+    .mobile-box-element li i {
+        line-height: 70px;
+    }
+
+    .mobile-box-element li a {
+        text-decoration: none;
+        font-family: Lexend Deca;
+        font-weight: 600;
+        color: black;
+    }
+
+    .mobile-local {
+        position: absolute;
+        bottom: 0;
+        font-weight: 500;
+        width: 100%;
+        height: 80px;
+        margin: 0 auto;
+        text-align: center;
+        color: rgb(106, 113, 114);
+
+    }
+
+    .mobile-local a {
+        line-height: 80px;
+        font-weight: 400;
+        font-family: Lexend Deca;
+        color: rgb(106, 113, 114);
+        font-size: 14px;
+    }
+
+    .mobile-local a:hover {
+        text-decoration: underline;
+    }
+
 
 }

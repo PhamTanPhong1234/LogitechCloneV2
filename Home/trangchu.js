@@ -17,8 +17,6 @@ var desktopCloseSearch = document.querySelector('#desktop-close-search');
 var desktopSearchBox = document.querySelector('.desktop-search-box');
 var desktopSearchInput = document.querySelector('#desktop-search-input');
 
-
-
 desktopOpenSearch.addEventListener('click', function () {
    desktopSearchBox.style.display = 'block';
    desktopSearchBox.style.animationName = 'Search-box-motion-in';
@@ -38,7 +36,7 @@ desktopCloseSearch.addEventListener('click', function () {
 
 /// Open and Close  /* desktop  */search box
 
-/// Open and Close /* tablet  */search box
+/// Open and Close /* tablet */search box
 var tabletOpenSearch = document.querySelector('#header .tablet-search-button');
 var tabletCloseSearch = document.querySelector('#tablet-close-search');
 var tabletSearchBox = document.querySelector('.tablet-search-box');
@@ -72,47 +70,100 @@ tabletCloseSearch.addEventListener('click', function () {
 var tabletElementOpen = document.querySelector('.tablet-nav-box #tablet-nav-button');
 var tabletElementClose = document.querySelector('.tablet-box-element .tablet-box-close');
 var tabletElementBox = document.querySelector('.tablet-box-element');
-var tabletHeader = document.querySelector('#main');
+var mainHeader = document.querySelector('#main');
 
 function handleScroll(event) {
    event.preventDefault();
 }
-function openElementBox() {
-   tabletHeader.style.animationName = 'tablet-header-slideA-motion';
-   tabletHeader.style.animationFillMode = 'forwards';
+function openTabletElementBox() {
+   mainHeader.style.animationName = 'tablet-header-slideA-motion';
+   mainHeader.style.animationFillMode = 'forwards';
    tabletElementBox.style.display = 'block';
    tabletElementBox.style.animationName = 'tablet-box-open-motion';
    tabletElementBox.style.animationFillMode = 'forwards';
    tabletElementBox.addEventListener('mousewheel', handleScroll);
-   tabletHeader.addEventListener('mousewheel', handleScroll);
+   mainHeader.addEventListener('mousewheel', handleScroll);
    document.querySelector('html').style.overflow = 'hidden';
 }
-function closeElementBox() {
-   tabletHeader.style.animationName = 'tablet-header-slideB-motion';
-   tabletHeader.style.animationFillMode = 'forwards';
+function closeTabletElementBox() {
+   mainHeader.style.animationName = 'tablet-header-slideB-motion';
+   mainHeader.style.animationFillMode = 'forwards';
    tabletElementBox.style.animationName = 'tablet-box-close-motion';
    tabletElementBox.style.animationFillMode = 'forwards';
-   tabletHeader.removeEventListener('mousewheel', handleScroll);
+   mainHeader.removeEventListener('mousewheel', handleScroll);
    document.querySelector('html').style.overflow = '';
    setTimeout(function () {
       tabletElementBox.style.display = 'none';
    }, 400);
 }
-tabletElementOpen.addEventListener('click', openElementBox)
-tabletElementClose.addEventListener('click',closeElementBox);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+tabletElementOpen.addEventListener('click', openTabletElementBox);
+tabletElementClose.addEventListener('click',closeTabletElementBox);
 
 //open and close /* tablet */ navigation box
+
+//open and close /* mobile */ search box
+var mobileOpenSearch = document.querySelector('#header .mobile-search-button');
+var mobileCloseSearch = document.querySelector('#mobile-close-search');
+var mobileSearchBox = document.querySelector('.mobile-search-box');
+var mobileSearchInput = document.querySelector('#mobile-search-input');
+
+
+
+mobileOpenSearch.addEventListener('click', function () {
+   mobileSearchBox.style.display = 'block';
+   mobileSearchBox.style.animationName = 'Search-box-motion-in';
+   mobileSearchBox.style.animationFillMode = 'forwards';
+   mobileSearchInput.focus();
+
+});
+mobileCloseSearch.addEventListener('click', function () {
+   mobileSearchBox.style.animationName = 'Search-box-motion-out';
+   mobileSearchBox.style.animationFillMode = 'forwards';
+   setTimeout(() => {
+      mobileSearchBox.style.display = 'none';
+   }, 500);
+
+});
+//open and close /* mobile */ search box
+
+
+
+
+
+
+
+
+
+
+
+//open and close /* mobile */ navigation box
+var mobileElementOpen = document.querySelector('.mobile-nav-box #mobile-nav-button');
+var mobileElementClose = document.querySelector('.mobile-box-element .mobile-box-close');
+var mobileElementBox = document.querySelector('.mobile-box-element');
+
+
+function openMobileElementBox() {
+   mainHeader.style.animationName = 'mobile-header-slideA-motion';
+   mainHeader.style.animationFillMode = 'forwards';
+   mobileElementBox.style.display = 'block';
+   mobileElementBox.style.animationName = 'mobile-box-open-motion';
+   mobileElementBox.style.animationFillMode = 'forwards';
+   mobileElementBox.addEventListener('mousewheel', handleScroll);
+   mainHeader.addEventListener('mousewheel', handleScroll);
+   document.querySelector('html').style.overflow = 'hidden';
+}
+function closeMobileElementBox() {
+   mainHeader.style.animationName = 'mobile-header-slideB-motion';
+   mainHeader.style.animationFillMode = 'forwards';
+   mobileElementBox.style.animationName = 'mobile-box-close-motion';
+   mobileElementBox.style.animationFillMode = 'forwards';
+   mainHeader.removeEventListener('mousewheel', handleScroll);
+   document.querySelector('html').style.overflow = '';
+   setTimeout(function () {
+      mobileElementBox.style.display = 'none';
+   }, 400);
+}
+mobileElementOpen.addEventListener('click', openMobileElementBox);
+mobileElementClose.addEventListener('click',closeMobileElementBox);
+
+//open and close /* mobile */ navigation box
