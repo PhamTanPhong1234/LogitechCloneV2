@@ -964,5 +964,13 @@
         border: 2px solid #2F3132;
     }
 
-
+    #body #body-present .body-present {
+    
+        display: flex;
+        flex-direction: column;
+    }
+    #body #body-present .body-present #present-box{
+        width: 100%;
+        margin-bottom: 1em;
+    }
 }
