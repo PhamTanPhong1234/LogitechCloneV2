@@ -97,7 +97,7 @@ function closeTabletElementBox() {
    }, 400);
 }
 tabletElementOpen.addEventListener('click', openTabletElementBox);
-tabletElementClose.addEventListener('click',closeTabletElementBox);
+tabletElementClose.addEventListener('click', closeTabletElementBox);
 
 //open and close /* tablet */ navigation box
 
@@ -164,6 +164,59 @@ function closeMobileElementBox() {
    }, 400);
 }
 mobileElementOpen.addEventListener('click', openMobileElementBox);
-mobileElementClose.addEventListener('click',closeMobileElementBox);
+mobileElementClose.addEventListener('click', closeMobileElementBox);
 
 //open and close /* mobile */ navigation box
+
+//function product slide
+let currentSlide = 0;
+const slideBox = document.querySelector('#slide-box');
+const slides = document.querySelectorAll('.slide');
+const prevBtn = document.querySelector("#grid-product-navigation .prev");
+const nextBtn = document.querySelector("#grid-product-navigation .next");
+const dots = document.querySelectorAll('.dot');
+/* slide */
+function showSlide(n) {
+   currentSlide = (n + slides.length) % slides.length;
+   const tranValue = - currentSlide * (100 / slides.length);
+   slideBox.style.transform = `translateX(${tranValue}%)`;
+   updateBtn();
+   updateDot();
+}
+function changeSlide(n) {
+   showSlide(currentSlide + n);
+}
+function updateBtn() {
+   if (currentSlide === 0) {
+      prevBtn.style.display = 'none';
+      nextBtn.style.display = 'flex';
+   } else if (currentSlide === slides.length - 1) {
+      prevBtn.style.display = 'flex';
+      nextBtn.style.display = 'none';
+   }else{
+      prevBtn.style.display = 'flex';
+      nextBtn.style.display = 'flex';
+   }
+}
+function updateDot(){
+   dots.forEach((dot,index) =>{
+      if(index === currentSlide){
+         dot.classList.add('dotAnimation');
+      }else{
+         dot.classList.remove('dotAnimation');
+
+      }
+   })
+}
+showSlide(currentSlide);
+prevBtn.addEventListener('click', () => {
+   changeSlide(-1);
+})
+nextBtn.addEventListener('click', () => {
+   changeSlide(1);
+})
+dots.forEach((dot,index) => {
+   dot.addEventListener('click', ()=>{
+      showSlide(index);
+   })
+})
