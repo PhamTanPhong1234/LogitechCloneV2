@@ -175,39 +175,46 @@ const slides = document.querySelectorAll('.slide');
 const prevBtn = document.querySelector("#grid-product-navigation .prev");
 const nextBtn = document.querySelector("#grid-product-navigation .next");
 const dots = document.querySelectorAll('.dot');
+
+let touchSx = 0;
+let touchEx = 0;
 /* slide */
 function showSlide(n) {
    currentSlide = (n + slides.length) % slides.length;
    const tranValue = - currentSlide * (100 / slides.length);
    slideBox.style.transform = `translateX(${tranValue}%)`;
-   updateBtn();
    updateDot();
 }
 function changeSlide(n) {
    showSlide(currentSlide + n);
 }
-function updateBtn() {
-   if (currentSlide === 0) {
-      prevBtn.style.display = 'none';
-      nextBtn.style.display = 'flex';
-   } else if (currentSlide === slides.length - 1) {
-      prevBtn.style.display = 'flex';
-      nextBtn.style.display = 'none';
-   }else{
-      prevBtn.style.display = 'flex';
-      nextBtn.style.display = 'flex';
-   }
-}
-function updateDot(){
-   dots.forEach((dot,index) =>{
-      if(index === currentSlide){
+
+function updateDot() {
+   dots.forEach((dot, index) => {
+      if (index === currentSlide) {
          dot.classList.add('dotAnimation');
-      }else{
+      } else {
          dot.classList.remove('dotAnimation');
 
       }
    })
 }
+slideBox.addEventListener('touchstart', (e) => {
+   touchSx = e.touches[0].clientX;
+});
+slideBox.addEventListener('touchmove', (e) => {
+   e.preventDefault();
+});
+slideBox.addEventListener('touchend', (e) => {
+   touchSx = e.changedTouches[0].clientX;
+   const swipeDirect = touchSx - touchEx > 0 ? "left" : "right";
+   if (swipeDirect === "left") {
+      changeSlide(1);
+   } else {
+      changeSlide(-1)
+   }
+});
+
 showSlide(currentSlide);
 prevBtn.addEventListener('click', () => {
    changeSlide(-1);
@@ -215,8 +222,8 @@ prevBtn.addEventListener('click', () => {
 nextBtn.addEventListener('click', () => {
    changeSlide(1);
 })
-dots.forEach((dot,index) => {
-   dot.addEventListener('click', ()=>{
+dots.forEach((dot, index) => {
+   dot.addEventListener('click', () => {
       showSlide(index);
    })
 })
