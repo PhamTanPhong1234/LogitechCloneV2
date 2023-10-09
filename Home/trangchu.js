@@ -184,7 +184,21 @@ function showSlide(n) {
    const tranValue = - currentSlide * (100 / slides.length);
    slideBox.style.transform = `translateX(${tranValue}%)`;
    updateDot();
-}
+} slideBox.addEventListener('touchstart', (e) => {
+   touchSx = e.touches[0].clientX;
+});
+slideBox.addEventListener('touchmove', (e) => {
+   e.preventDefault();
+});
+slideBox.addEventListener('touchend', (e) => {
+   touchSx = e.changedTouches[0].clientX;
+   const swipeDirect = touchSx - touchEx > 0 ? "left" : "right";
+   if (swipeDirect === "left") {
+      changeSlide(-1);
+   } else {
+      changeSlide(1);
+   }
+});
 function changeSlide(n) {
    showSlide(currentSlide + n);
 }
@@ -199,21 +213,7 @@ function updateDot() {
       }
    })
 }
-slideBox.addEventListener('touchstart', (e) => {
-   touchSx = e.touches[0].clientX;
-});
-slideBox.addEventListener('touchmove', (e) => {
-   e.preventDefault();
-});
-slideBox.addEventListener('touchend', (e) => {
-   touchSx = e.changedTouches[0].clientX;
-   const swipeDirect = touchSx - touchEx > 0 ? "left" : "right";
-   if (swipeDirect === "left") {
-      changeSlide(1);
-   } else {
-      changeSlide(-1)
-   }
-});
+
 
 showSlide(currentSlide);
 prevBtn.addEventListener('click', () => {

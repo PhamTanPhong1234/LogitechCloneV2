@@ -391,6 +391,7 @@
     height: 100%;
     display: flex;
     transition: transform 0.5s ease-in-out;
+
 }
 
 #slide-box .slide {
@@ -401,14 +402,15 @@
 
 
 #desktop-product-wrap #nav-dot {
-    margin-top: 1em;
+    margin-top: 2em;
     display: flex;
     justify-content: center;
 }
 
 #desktop-product-wrap #nav-dot .dot {
-    margin: 1em 0.5em;
+    margin: 2em 0.5em;
     width: 1.1em;
+    cursor: pointer;
     height: 1.1em;
     background: #000;
     border-radius: 50%;
@@ -423,7 +425,7 @@
     border: 4px solid #000;
 }
 
-#desktop-product-wrap #slide-box .slide .slide-content-grid {
+#desktop-product-wrap #slide-box .slide1 .slide-content-grid {
     display: grid;
     grid-template-columns: 32% 32% 33%;
     grid-template-rows: 31.5% 31.5% 31.5%;
@@ -436,11 +438,12 @@
 #desktop-product-wrap .product-element {
     background-color: #f5f5f4;
     position: relative;
+    cursor: pointer;
 }
 
 #desktop-product-wrap .product-img-wrap {
     width: 100%;
-    height: 70%;
+    height: 80%;
     overflow: hidden;
 }
 
@@ -449,6 +452,8 @@
     scale: 95%;
     transition: 0.3s;
 }
+
+/* slide 1 */
 
 #desktop-product-wrap .product-element:hover img {
     scale: 105%;
@@ -461,7 +466,8 @@
     color: #2F3132;
     text-align: center;
 }
-#slide-box .slide .slide-content-grid .product-element-grid1 {
+
+#slide-box .slide .slide1-content .product-element-grid1 {
     grid-row: 1/3;
     grid-column: 1/3;
     background-color: #f5f5f4;
@@ -469,30 +475,112 @@
     cursor: pointer;
 }
 
-#slide-box .slide .slide-content-grid .product-element-grid2 {
+#slide-box .slide .slide1-content .product-element-grid2 {
     grid-row: 3;
     grid-column: 1;
 }
 
-#slide-box .slide .slide-content-grid .product-element-grid3 {
+#slide-box .slide .slide1-content .product-element-grid3 {
     grid-row: 3;
     grid-column: 2;
 }
 
-#slide-box .slide .slide-content-grid .product-element-grid4 {
+#slide-box .slide .slide1-content .product-element-grid4 {
     grid-row: 1;
     grid-column: 3;
     position: relative;
 }
-#slide-box .slide .slide-content-grid .product-element-grid5 {
+
+#slide-box .slide .slide1-content .product-element-grid5 {
     grid-row: 2/4;
     grid-column: 3;
 }
-#slide-box .slide .slide-content-grid .product-element-grid5 h3{
-    margin-top: 1.5em;
+
+#slide-box .slide .slide1-content .product-element-grid5 h3 {
+    margin-top: 2.5em;
+}
+
+/* slide 1 */
+/*slide 2  */
+#desktop-product-wrap #slide-box .slide2 .slide-content-flex {
+    display: flex;
+    width: 85%;
+    justify-content: space-between;
+    height: 100%;
+    flex-wrap: 20px;
+    margin: 0 auto;
+}
+
+#desktop-product-wrap #slide-box .slide2 .slide-content-flex .product-element {
+    width: 49%;
+    background-color: #f5f5f4;
+    overflow: hidden;
+    position: relative;
 }
 
 
+#desktop-product-wrap .product-element-flex1 h3 {
+    position: absolute;
+    top: 3em;
+    z-index: 10;
+    width: 100%;
+    font-family: Lexend Deca;
+    font-weight: 600;
+    color: #2F3132;
+    text-align: center;
+}
+
+
+#desktop-product-wrap .product-element-flex1 .img-product-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#desktop-product-wrap .product-element-flex1 .img-product-wrap img {
+    position: absolute;
+    bottom: -2em;
+    width: 100%;
+}
+
+#desktop-product-wrap .product-element-flex2 .img-product-wrap {
+    position: relative;
+    width: 100%;
+    height: 80%;
+}
+
+#desktop-product-wrap .product-element-flex2 .img-product-wrap img {
+    bottom: 0;
+    margin-top: 3em;
+    width: 100%;
+    scale: 140%;
+}
+
+#desktop-product-wrap .product-element-flex2:hover .img-product-wrap img {
+    scale: 150%;
+}
+
+/*slide 2  */
+/* slide 3 */
+#desktop-product-navigation #slide-box .slide3 .slide3-img-box {
+    width: 85%;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+#desktop-product-navigation #slide-box .slide3 .slide3-img-box img {
+    width: 100%;
+    scale: 110%;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#desktop-product-navigation #slide-box .slide3 .slide3-img-box:hover img {
+    scale: 120%;
+}
+
+/* slide 3 */
 
 
 
